@@ -1,0 +1,55 @@
+//super class
+class Phone{
+    public void time(){
+        System.out.println("Its 10:30 AM !");
+    }
+    public void call(){
+        System.out.println("Calling...");
+    }
+    public void sms(){
+        System.out.println("Sending SMS..");
+    }
+    
+}
+// inheritance
+// sub class
+class SmartPhone extends Phone {
+	public void music(){
+        System.out.println( "Playing Music" );
+    }
+    @Override // call () method
+    public void call(){
+        System.out.println("x is calling...");
+    }
+    public void time(){
+        System.out.println("Its 10:30 AM !");
+    }
+
+}
+public class Dynamic_method_dispatch_49 {
+    public static void main(String[] args) {
+        Phone obj =  new SmartPhone();
+        // SmartPhone xm = new SmartPhone();
+        
+        obj.time();     // here's the time object  will execute the smartphone's time () not phone's time() as ith object of SmartPhone. because we     create  a object in phone's class but the object is created for smartphone's class.
+
+
+        obj.call();     // same for  all objects of the super class     it will call the call() method of the super class
+                      
+        obj.sms();
+
+        // if we want to print or execute the suuper class's object then we have to create an another object class of phone like ---
+        Phone obj1 = new Phone();     //then
+        obj1.call();
+        obj1.time();    // now we are able to print the phone's call() & time() object. 
+
+
+      /*xm.music();
+        xm.time();
+        xm.call();
+        xm.sms();   */
+    }
+}
+
+
+//              it's all about dynamic dispatch .
